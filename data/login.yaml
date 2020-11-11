@@ -1,0 +1,160 @@
+api_belong: systembiz
+desc: 登录
+urls:
+  - login:
+      - url: /user/userLogin.do
+        method: post
+        desc: 正常登陆
+        keyword: login
+        params:
+          test:
+            username: "FS888888"
+            password: ""
+            loginPort: 2
+          pre:
+            username: ""
+            password: ""
+            loginPort: 2
+          online:
+#            username: ""
+#            password: ""
+            username: ""
+            password: ""
+            loginPort: 2
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+      - url: /user/loginOut.do
+        method: post
+        desc: 正常登出
+        keyword: loginout
+        token: $token
+        params:
+          token: $token
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+      - url: /user/judgeLogin.do
+        method: get
+        desc: 根据token判断是否登录
+        keyword: judge_login
+        token: $token
+        params:
+          token: $token
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+      - url: /user/interviewMobileLogin.do
+        method: post
+        desc: 面试登陆
+        keyword: mobileLogin
+        params:
+          test:
+            mobileNo: "18899999999"
+            code: "111111"
+          pre:
+            mobileNo: "18868822222"
+            code: "111111"
+        check:
+          - code: '200'
+          - success: true
+          - message
+          - tag
+          - env
+          - version
+          - data
+      - url: /user/entryMobileLogin.do
+        method: post
+        desc: 入职登陆
+        keyword: entryLogin
+        params:
+          test:
+            mobileNo: "18868800000"
+            code: "111111"
+          pre:
+            mobileNo: "18868822222"
+            code: "111111"
+        check:
+          - code: '200'
+          - success: true
+          - message
+          - tag
+          - env
+          - version
+          - data
+  - Forget_Password:
+      - url: /forget/inspectionAccount.run
+        method: post
+        desc: 检验账号
+        keyword: inspection_account
+        params:
+          test:
+            "empId": 0
+            "name": "孙硕"
+            "phone": "13072640093"
+            "userCode": "FS000969"
+          pre:
+            "empId": 0
+            "name": "孙硕"
+            "phone": "13072640093"
+            "userCode": "FS000969"
+          online:
+            "empId": 0
+            "name": ""
+            "phone": ""
+            "userCode": ""
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+      - url: /forget/updatePassword.run
+        method: post
+        desc: 检验密码
+        keyword: update_password
+        token: $token
+        params:
+          test:
+            "confirmPassword": "123456789"
+            "isManager": true
+            "managerCode": ""
+            "managerName": ""
+            "newPassword": "123456789"
+            "orgId": 8
+            "userCode": "545444"
+          pre:
+            "confirmPassword": "123456789"
+            "isManager": true
+            "managerCode": ""
+            "managerName": ""
+            "newPassword": "123456789"
+            "orgId": 8
+            "userCode": "545444"
+          online:
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+

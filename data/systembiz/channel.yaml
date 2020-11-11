@@ -1,0 +1,1462 @@
+api_belong: systembiz
+desc: 渠道中心
+urls:
+  - channel_platform:
+    -   url: /channel/flowPlatform/list.do
+        method: post
+        desc: 平台列表
+        keyword: channel_platform_list
+        params:
+          currentPage: 1
+          pageSize: 10
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPlatform/listAll.do
+        method: post
+        desc: 所有平台
+        keyword: channel_platform_all_list
+        params:
+          currentPage: 1
+          pageSize: 10
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPlatform/add.do
+        method: post
+        desc: 新增平台
+        keyword: add_channel_platform
+        params:
+          test:
+            fpName: 自动化测试,测试环境新增平台${time}
+          pre:
+            fpName: 自动化测试,预发环境新增平台${time}
+          online:
+            fpName: 自动化测试,正式环境新增平台${time}
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPlatform/update.do
+        method: post
+        desc: 编辑平台
+        keyword: update_channel_platform
+        params:
+          test:
+            id: 61
+            fpName: 自动化测试,测试环境编辑平台${time},勿删
+          pre:
+            id: 28
+            fpName: 自动化测试,预发环境编辑平台${time}，勿删
+          online:
+            id: -1
+            fpName: 自动化测试,正式环境编辑平台${time}，勿删
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPlatform/delete.do?id={id}
+        method: post
+        desc: 删除平台
+        keyword: delete_channel_platform
+        params:
+          test:
+            id: 61
+          pre:
+            id: 28
+          online:
+            id: -1
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+  - channel_source:
+    -   url: /channel/flowSource/list.do
+        method: post
+        desc: 流量源列表
+        keyword: channel_source_list
+        params:
+          currentPage: 1
+          pageSize: 10
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowSource/listAll.do
+        method: post
+        desc: 全部流量源列表
+        keyword: channel_source_all_list
+        params:
+          currentPage: 1
+          pageSize: 10
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowSource/add.do
+        method: post
+        desc: 新增流量源
+        keyword: add_channel_source
+        params:
+          test:
+            fsName: 自动化测试，测试环境新增流量源${time}
+            orgId: 1
+            fpId: 2
+            spellingCode: test_code
+          pre:
+            fsName: 自动化测试，预发环境新增流量源${time}
+            orgId: 1
+            fpId: 2
+            spellingCode: pre_code
+          online:
+            fsName: 自动化测试，正式环境新增流量源${time}
+            orgId: 1
+            fpId: 2
+            spellingCode: online_code
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowSource/update.do
+        method: post
+        desc: 编辑流量源
+        keyword: update_channel_source
+        params:
+          test:
+            id: 143
+            fsName: 自动化测试，测试环境编辑流量源${time},勿删
+            orgId: 1
+            fpId: 61
+            spellingCode: test_code
+          pre:
+            id: 58
+            fsName: 自动化测试，预发环境编辑流量源${time},勿删
+            orgId: 1
+            fpId: 29
+            spellingCode: pre_code
+          online:
+            id: -1
+            fsName: 自动化测试，正式环境编辑流量源${time},勿删
+            orgId: 1
+            fpId: 2
+            spellingCode: online_code
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowSource/delete.do?id={id}
+        method: post
+        desc: 删除流量源
+        keyword: delete_channel_source
+        params:
+          test:
+            id: 143
+          pre:
+            id: 58
+          online:
+            id: -1
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+  - channel_pool:
+    -   url: /channel/flowPool/list.do
+        method: post
+        desc: 流量池列表接口
+        keyword: channel_pool_list
+        params:
+          currentPage: 1
+          pageSize: 10
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPool/fpType.do
+        method: post
+        desc: 流量池类型接口
+        keyword: channel_pool_type_list
+        params:
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPool/appType.do
+        method: post
+        desc: 流量池对应应用类型接口
+        keyword: channel_pool_app_type_list
+        params:
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPool/findOneByFpCode.do?fpCode={fpCode}
+        method: post
+        desc: 根据流量池代码查询
+        keyword: get_channel_pool_by_code
+        params:
+          test:
+            fpCode: 1
+          pre:
+            fpCode: 2
+          online:
+            fpCode: 3
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPool/add.do
+        method: post
+        desc: 流量池新增接口
+        keyword: add_channel_pool
+        params:
+          test:
+            appId: ""
+            groupName: 自动化测试，测试环境新增流量池${time}
+            orgId: 1
+            fpType: 1
+            fpCode: test_code${time}
+            groupQrcodeUrl: http://91duobaoyu.oss-cn-hangzhou.aliyuncs.com/api_file/jpg/2019/11/01/channelOperations20191101-143619-1590.jpg
+          pre:
+            appId: ""
+            groupName: 自动化测试，预发环境新增流量池${time}
+            orgId: 1
+            fpType: 1
+            fpCode: pre_code${time}
+            groupQrcodeUrl: http://91duobaoyu.oss-cn-hangzhou.aliyuncs.com/api_file/jpg/2019/11/01/channelOperations20191101-143619-1590.jpg
+          online:
+            appId: ""
+            groupName: 自动化测试，正式环境新增流量池${time}
+            orgId: 1
+            fpType: 1
+            fpCode: online_code${time}
+            groupQrcodeUrl: http://91duobaoyu.oss-cn-hangzhou.aliyuncs.com/api_file/jpg/2019/11/01/channelOperations20191101-143619-1590.jpg
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPool/update.do
+        method: post
+        desc: 流量池编辑接口
+        keyword: update_channel_pool
+        params:
+          test:
+            id: 60
+            appId: ""
+            groupName: 自动化测试，测试环境编辑流量池${time},勿删
+            orgId: 1
+            fpType: 1
+            fpCode: test_code
+            groupQrcodeUrl: http://91duobaoyu.oss-cn-hangzhou.aliyuncs.com/api_file/jpg/2019/11/01/channelOperations20191101-143619-1590.jpg
+          pre:
+            id: 10
+            appId: ""
+            groupName: 自动化测试，预发环境编辑流量池${time},勿删
+            orgId: 1
+            fpType: 1
+            fpCode: pre_code
+            groupQrcodeUrl: http://91duobaoyu.oss-cn-hangzhou.aliyuncs.com/api_file/jpg/2019/11/01/channelOperations20191101-143619-1590.jpg
+          online:
+            id: -1
+            appId: ""
+            groupName: 自动化测试，正式环境编辑流量池${time},勿删
+            orgId: 1
+            fpType: 1
+            fpCode: online_code
+            groupQrcodeUrl: http://91duobaoyu.oss-cn-hangzhou.aliyuncs.com/api_file/jpg/2019/11/01/channelOperations20191101-143619-1590.jpg
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPool/delete.do?id={id}
+        method: post
+        desc: 流量池删除接口
+        keyword: delete_channel_pool
+        params:
+          test:
+            id: 60
+          pre:
+            id: 10
+          online:
+            id: -1
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+  - channel_org:
+    -   url: /channel/organization/deleteCache.do
+        method: post
+        desc: 删除部门缓存
+        keyword: delete_channel_org_cache
+        params:
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/organization/tree.do?id={id}
+        method: post
+        desc: 部门树
+        keyword: channel_org_tree
+        params:
+          test:
+            id: 1
+          pre:
+            id: 2
+          online:
+            id: 3
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+  - channel_application:
+    - url: /channel/application/tree.do
+      method: post
+      desc: 所有应用
+      keyword: channel_application_all_list
+      params:
+      check:
+        - code: '200'
+        - success: True
+        - message
+        - tag
+        - env
+        - version
+        - data
+    -   url: /channel/application/findByAppCode.do?appCode={appCode}
+        method: post
+        desc: 根据appCode查询应用
+        keyword: get_channel_application_by_code
+        params:
+          test:
+            appCode: gh_e4d8fd380e4c
+          pre:
+            appCode: gh_e4d8fd380e4c
+          online:
+            appCode: gh_e4d8fd380e4c
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/application/findApp.do
+        method: post
+        desc: 查询应用
+        keyword: find_channel_application
+        params:
+          test:
+            appCode: gh_e4d8fd380e4c
+          pre:
+            appCode: gh_e4d8fd380e4c
+          online:
+            appCode: gh_e4d8fd380e4c
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/application/listByAppType.do?appType={appType}
+        method: post
+        desc: 应用筛选列表
+        keyword: find_channel_application_by_app_type
+        params:
+          test:
+            appType: 1
+          pre:
+            appType: 2
+          online:
+            appType: 3
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+  - pool_source:
+    - url: /channel/flowPoolSource/list.do
+      method: post
+      desc: 流量池、源关系列表接口
+      keyword: pool_source_list
+      params:
+        test:
+          fpId: 60
+        pre:
+          fpId: 10
+        online:
+          fpId: 30
+      check:
+        - code: '200'
+        - success: True
+        - message
+        - tag
+        - env
+        - version
+        - data
+    -   url: /channel/flowPoolSource/detail.do?id={id}
+        method: post
+        desc: 流量池、源关系详情接口
+        keyword: pool_source_detail
+        params:
+          test:
+            id: 60
+          pre:
+            id: 10
+          online:
+            id: 3
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPoolSource/add.do
+        method: post
+        desc: 流量池、源关系新增接口
+        keyword: add_pool_source
+        params:
+          test:
+            fpId: 60
+            fsId: 27
+          pre:
+            fpId: 10
+            fsId: 27
+          online:
+            fpId: 51
+            fsId: 27
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channel/flowPoolSource/delete.do?id={id}
+        method: post
+        desc: 流量池、源关系删除接口
+        keyword: delete_pool_source
+        params:
+          test:
+            id: 1
+          pre:
+            id: 2
+          online:
+            id: 3
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+  - flow_source_reply:
+    -   url: /flowPoolSourceReply/detail.do
+        method: post
+        desc: 流量源、流量池对应关系自动回复文案详情
+        keyword: flow_pool_source_reply_detail
+        params:
+          test:
+            fpId: 60
+            fsId: 68
+            currentPage: 1
+            pageSize: 10
+          pre:
+            fpId: 10
+            fsId: 58
+            currentPage: 1
+            pageSize: 10
+          online:
+            currentPage: 1
+            pageSize: 10
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /flowPoolSourceReply/add.do
+        method: post
+        desc: 流量池、源关系自动回复文案新增接口
+        keyword: add_flow_pool_source_reply
+        params:
+          test:
+            fpId: 60
+            fsId: 68
+            isSendAfterChat: true
+            receptionContentForm: 1
+            receptionText: 自动化测试，测试环境新增自动回复文案${time}
+            receptionType: 2
+            timeIntervalNoUnit: 1
+            timeUnit: hour
+          pre:
+            fpId: 10
+            fsId: 58
+            isSendAfterChat: true
+            receptionContentForm: 1
+            receptionText: 自动化测试，预发环境新增自动回复文案${time}
+            receptionType: 2
+            timeIntervalNoUnit: 1
+            timeUnit: hour
+          online:
+            fpId: -1
+            fsId: -1
+            isSendAfterChat: true
+            receptionContentForm: 1
+            receptionText: 自动化测试，正式环境新增自动回复文案${time}
+            receptionType: 2
+            timeIntervalNoUnit: 1
+            timeUnit: hour
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /flowPoolSourceReply/update.do
+        method: post
+        desc: 流量池、源关系自动回复文案编辑接口
+        keyword: update_flow_pool_source_reply
+        params:
+          test:
+            id: 85
+            fpId: 60
+            fsId: 68
+            isSendAfterChat: true
+            receptionContentForm: 1
+            receptionText: 自动化测试，测试环境编辑自动回复文案${time}
+            receptionType: 2
+            timeIntervalNoUnit: 1
+            timeUnit: hour
+          pre:
+            id: 22
+            fpId: 10
+            fsId: 58
+            isSendAfterChat: true
+            receptionContentForm: 1
+            receptionText: 自动化测试，预发环境编辑自动回复文案${time}
+            receptionType: 2
+            timeIntervalNoUnit: 1
+            timeUnit: hour
+          online:
+            id: -1
+            fpId: -1
+            fsId: -1
+            isSendAfterChat: true
+            receptionContentForm: 1
+            receptionText: 自动化测试，正式环境编辑自动回复文案${time}
+            receptionType: 2
+            timeIntervalNoUnit: 1
+            timeUnit: hour
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /flowPoolSourceReply/delete.do
+        method: post
+        desc: 流量池、源关系自动回复文案删除接口
+        keyword: delete_flow_pool_source_reply
+        params:
+          test:
+            id: 86
+          pre:
+            id: 23
+          online:
+            id: -1
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+  - channel_account:
+      -   url: /channel/channelaccountinfo/list.do
+          method: post
+          desc: 查找员工对应的所有的渠道账号信息
+          keyword: get_channel_accout_by_user
+          params:
+            test:
+              fpId: 60
+              fsId: 68
+              currentPage: 1
+              pageSize: 10
+            pre:
+              fpId: 10
+              fsId: 58
+              currentPage: 1
+              pageSize: 10
+            online:
+              currentPage: 1
+              pageSize: 10
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /channel/channelaccountinfo/listAll.do
+          method: get
+          desc: 获取流量源或者流量池对应的账号列表
+          keyword: get_channel_accout_all_list
+          params:
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /channel/channelaccountinfo/detail.do/{id}
+          method: get
+          desc: 根据id查找对应的渠道信息详情
+          keyword: get_channel_accout_detail_by_id
+          params:
+            test:
+              id: 1
+            pre:
+              id: 2
+            online:
+              id: 3
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /channel/channelaccountinfo/selectOrgIdInfoEmpIdList.do
+          method: get
+          desc: 回显查询管理人的部门和管理人名
+          keyword: get_emp_info_by_id
+          params:
+            test:
+              empId: 296
+            pre:
+              empId: 3
+            online:
+              empId: 7
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /channel/channelaccountinfo/add.do
+          method: post
+          desc: 添加渠道账号信息
+          keyword: add_channel_account
+          params:
+            test:
+              companyBody: "test_major"
+              empId: 296
+              fpSourceId: 141
+              managerAccount: "test_account"
+              managerPassWord: "test_password"
+              remarks: "test_mark"
+              sourceTypeId: 2
+            pre:
+              companyBody: "pre_major"
+              empId: 3
+              fpSourceId: 143
+              managerAccount: "pre_account"
+              managerPassWord: "pre_password"
+              remarks: "pre_mark"
+              sourceTypeId: 2
+            online:
+              companyBody: "online_major"
+              empId: -1
+              fpSourceId: 143
+              managerAccount: "online_account"
+              managerPassWord: "online_password"
+              remarks: "online_mark"
+              sourceTypeId: 2
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /channel/channelaccountinfo/update.do
+          method: post
+          desc: 更新渠道账号信息
+          keyword: update_channel_account
+          params:
+            test:
+              id: 46
+              companyBody: "test_major"
+              empId: 296
+              fpSourceId: 143
+              managerAccount: "test_account"
+              managerPassWord: "test_password"
+              remarks: "test_mark"
+              sourceTypeId: 2
+            pre:
+              id: 50
+              companyBody: "pre_major"
+              empId: 3
+              fpSourceId: 58
+              managerAccount: "pre_account"
+              managerPassWord: "pre_password"
+              remarks: "pre_mark"
+              sourceTypeId: 2
+            online:
+              id: -1
+              companyBody: "online_major"
+              empId: -1
+              fpSourceId: 143
+              managerAccount: "online_account"
+              managerPassWord: "online_password"
+              remarks: "online_mark"
+              sourceTypeId: 2
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /channel/channelaccountinfo/delete.do
+          method: get
+          desc: 删除渠道账号信息
+          keyword: delete_channel_account
+          params:
+            test:
+              id: 43
+              isDeleted: 0
+              updatedBy: 陈为德
+            pre:
+              id:
+              isDeleted: 1
+              updatedBy: 陈为德
+            online:
+              id: 44
+              isDeleted: 1
+              updatedBy: 陈为德
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+  - channel_wechat:
+      -   url: /channel/wechatAccountWork/list.do
+          method: post
+          desc: 微信号列表
+          keyword: wechat_account_list
+          params:
+            test:
+              waNo:
+              waNickname: 2
+              mobileNo:
+              currentPage: 1
+              pageSize: 10
+            pre:
+              waNo:
+              waNickname:
+              mobileNo:
+              currentPage: 1
+              pageSize: 10
+            online:
+              waNo:
+              waNickname:
+              mobileNo:
+              currentPage: 1
+              pageSize: 10
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      - url: /channel/wechatAccountWork/listAll.do
+        method: post
+        desc: 所有微信号列表
+        keyword: wechat_account_list_all
+        params:
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+      -   url: /channel/wechatAccountWork/findOneById.do/{id}
+          method: get
+          desc: 根据id查询
+          keyword: find_one_by_id
+          params:
+            id: 1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /channel/wechatAccountWork/findWawMapByIds.do
+          method: post
+          desc: 根据id集合查询微信号
+          keyword: find_wawmap_by_id
+          params:
+            test:
+                - 1
+            pre:
+                - 1
+            online:
+                - 1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /channel/wechatAccountWork/listAllByIds.do
+          method: post
+          desc: 根据id查询所有信息
+          keyword: list_all_by_ids
+          params:
+            test:
+                - 1
+            pre:
+                - 1
+            online:
+                - 1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      - url: /channel/wechatAccountWork/genCardImg.do?id={id}
+        method: post
+        desc: 生成微信名片
+        keyword: generate_wechat_card
+        params:
+          test:
+            id: 30
+          pre:
+            id: 30
+          online:
+            id: -1
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+      -   url: /channel/wechatAccountWork/add.do
+          method: post
+          desc: 新增微信
+          keyword: add_channel_wechat
+          params:
+            test:
+              waNo: "test${time}"
+              waNickname: "自动化接口测试${time}"
+              mobileNo: "1${time}"
+              qrcodePic: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/9%202019-10-23%2011%3A51%3A51"
+              cardImg:
+              headImg: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/6%202019-10-23%2011%3A51%3A53"
+              createdBy: 孙硕
+              updatedBy: 孙硕
+            pre:
+              waNo: "test${time}"
+              waNickname: "自动化接口测试${time}"
+              mobileNo: "1${time}"
+              qrcodePic: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/9%202019-10-23%2011%3A51%3A51"
+              cardImg:
+              headImg: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/6%202019-10-23%2011%3A51%3A53"
+              createdBy: 孙硕
+              updatedBy: 孙硕
+            online:
+              waNo: "test${time}"
+              waNickname: "自动化接口测试${time}"
+              mobileNo: "1${time}"
+              qrcodePic: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/9%202019-10-23%2011%3A51%3A51"
+              cardImg:
+              headImg: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/6%202019-10-23%2011%3A51%3A53"
+              createdBy: 孙硕
+              updatedBy: 孙硕
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /channel/wechatAccountWork/update.do
+          method: post
+          desc: 编辑微信
+          keyword: update_channel_wechat
+          params:
+            test:
+              id: 75644
+              waNo: sunshuo
+              waNickname: "孙硕"
+              mobileNo: 18300000000
+              qrcodePic: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/9%202019-10-23%2011%3A51%3A51"
+              cardImg:
+              headImg: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/6%202019-10-23%2011%3A51%3A53"
+              updatedBy: 孙硕
+            pre:
+              id: 15
+              waNo: sunshuo
+              waNickname: "孙硕"
+              mobileNo: 18300000000
+              qrcodePic: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/9%202019-10-23%2011%3A51%3A51"
+              cardImg:
+              headImg: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/6%202019-10-23%2011%3A51%3A53"
+              updatedBy: 孙硕
+            online:
+              id: -1
+              waNo: sunshuo
+              waNickname: "孙硕"
+              mobileNo: 18300000000
+              qrcodePic: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/9%202019-10-23%2011%3A51%3A51"
+              cardImg:
+              headImg: "https://newsystem-duobaodyu.oss-cn-hangzhou.aliyuncs.com/6%202019-10-23%2011%3A51%3A53"
+              updatedBy: 孙硕
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /channel/wechatAccountWork/delete.do?id={id}
+          method: post
+          desc: 删除微信
+          keyword: delete_channel_wechat
+          params:
+            test:
+              id: 43
+            pre:
+              id: 43
+            online:
+              id: -1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+  - channel_link:
+    -   url: /channellink/listlink.do
+        method: post
+        desc: 渠道列表
+        keyword: channel_link_list
+        params:
+          test:
+            currentPage: 1
+            pageSize: 10
+            orgId: 37
+          pre:
+            currentPage: 1
+            pageSize: 10
+            orgId: 30
+          online:
+            currentPage: 1
+            pageSize: 10
+            orgId: 30
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+    -   url: /channellink/update.do
+        method: post
+        desc: 编辑
+        keyword: update_channel_link
+        params:
+          test:
+            fpId: 135
+            fpName: 自动化测试,测试环境编辑平台${time},勿删
+            fsId: 361
+            fsName: 自动化测试,测试环境编辑平台${time},勿删
+          pre:
+            fpId: 44
+            fpName: 自动化测试,测试环境编辑平台${time},勿删
+            fsId: 343
+            fsName: 自动化测试,测试环境编辑平台${time},勿删
+          online:
+            fpId: -1
+            fpName: 自动化测试,测试环境编辑平台${time},勿删
+            fsId: -1
+            fsName: 自动化测试,测试环境编辑平台${time},勿删
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+  - channel_layer:
+      - url: /flowSourceLayer/list.do
+        method: post
+        desc: 分层维度列表
+        keyword: flow_source_layer_list
+        params:
+          currentPage: 1
+          pageSize: 10
+          fslType: 1
+        check:
+          - code: '200'
+          - success: True
+          - message
+          - tag
+          - env
+          - version
+          - data
+      -   url: /flowSourceLayer/listAll.do?fsmId={fsmId}
+          method: post
+          desc: 分层维度全部列表
+          keyword: flow_source_layer_all_list
+          params:
+            fsmId: 1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayer/add.do
+          method: post
+          desc: 新增流量分层维度
+          keyword: add_flow_source_layer
+          params:
+            test:
+              "fsmId": 1
+              "name": 测试环境新增维度分层
+            pre:
+              "fsmId": 1
+              "name": 预发环境新增维度分层
+            online:
+              "fsmId": -1
+              "name": 正式环境新增维度分层
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayer/update.do
+          method: post
+          desc: 编辑流量分层维度
+          keyword: update_flow_source_layer
+          params:
+            test:
+              id: 23
+              "fsmId": 1
+              "name": 测试环境编辑维度分层,勿动，勿删除
+            pre:
+              id: 9
+              "fsmId": 1
+              "name": 预发环境编辑维度分层,勿动，勿删除
+            online:
+              id: -1
+              "fsmId": -1
+              "name": 正式环境编辑维度分层,勿动，勿删除
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayer/delete.do?id={id}
+          method: post
+          desc: 删除流量分层维度
+          keyword: delete_flow_source_layer
+          params:
+            test:
+              id: 27
+            pre:
+              id: 10
+            online:
+              id: -1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayer/keywordMatchingSwitch.do?id={id}
+          method: post
+          desc: 分层维度关键词识别开关
+          keyword: keyword_matching_switch
+          params:
+            test:
+              id: 23
+            pre:
+              id: 9
+            online:
+              id: -1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayer/up.do?id={id}
+          method: post
+          desc: 分层维度上移
+          keyword: up_flow_source_layer
+          params:
+            test:
+              id: 23
+            pre:
+              id: 9
+            online:
+              id: -1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayer/down.do?id={id}
+          method: post
+          desc: 分层维度下移
+          keyword: down_flow_source_layer
+          params:
+            test:
+              id: 23
+            pre:
+              id: 9
+            online:
+              id: -1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceMajor/listAll.do
+          method: post
+          desc: 流量源列表
+          keyword: flow_source_major_list
+          params:
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceMajor/autoMatchSwitch.do?id={id}
+          method: post
+          desc: 智能识别开关
+          keyword: auto_match_switch
+          params:
+            test:
+              id: 1
+            pre:
+              id: 1
+            online:
+              id: -1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceMajor/updateCache.do?fsmId={fsmId}
+          method: post
+          desc: 更新缓存
+          keyword: update_cache
+          params:
+            test:
+              fsmId: 1
+            pre:
+              fsmId : 1
+            online:
+              fsmId : -1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayerKeyword/list.do
+          method: post
+          desc: 关键词分页列表
+          keyword: keyword_list
+          params:
+            currentPage: 1
+            pageSize: 10
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayerKeyword/listAllByFsIdWithOrder.do?fsId={fsId}
+          method: post
+          desc: 根据流量源id获取全部关键词（已排序）
+          keyword: keyword_sorted_list_by_fs_id
+          params:
+            test:
+              fsId: 6
+            pre:
+              fsId: 6
+            online:
+              fsId: 498
+          check:
+            - code: '200'
+            - success
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayerKeyword/listAllByFslId.do
+          method: post
+          desc: 特定分层下所有关键词
+          keyword: keyword_sorted_list_by_fsl_id
+          params:
+            test:
+              fslId: 23
+              currentPage: 1
+              pageSize: 10
+            pre:
+              fslId: 9
+              currentPage: 1
+              pageSize: 10
+            online:
+              fslId: 1
+              currentPage: 1
+              pageSize: 10
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayerKeyword/listAllWithOrder.do?fsmId={fsmId}
+          method: post
+          desc: 获取整个主流量源全部关键词（已排序）
+          keyword: keyword_sorted_list
+          params:
+            test:
+              fsmId: 1
+            pre:
+              fsmId: 1
+            online:
+              fsmId: 1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayerKeyword/add.do
+          method: post
+          desc: 新增关键词
+          keyword: add_keyword
+          params:
+            test:
+              keyword: 测试环境新增关键词
+              fslId: 23
+            pre:
+              keyword: 预发环境新增关键词
+              fslId: 9
+            online:
+              keyword: 正式环境新增关键词
+              fslId: -1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayerKeyword/update.do
+          method: post
+          desc: 编辑关键词
+          keyword: update_keyword
+          params:
+            test:
+              keyword: 测试环境编辑关键词,勿动，勿删除
+              id: 253
+            pre:
+              keyword: 预发环境编辑关键词,勿动，勿删除
+              id: 250
+            online:
+              id: -1
+              keyword: 正式环境编辑关键词,勿动，勿删除
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
+      -   url: /flowSourceLayerKeyword/delete.do?id={id}
+          method: post
+          desc: 删除关键词
+          keyword: delete_keyword
+          params:
+            test:
+              id: 253
+            pre:
+              id: 1
+            online:
+              id: -1
+          check:
+            - code: '200'
+            - success: True
+            - message
+            - tag
+            - env
+            - version
+            - data
